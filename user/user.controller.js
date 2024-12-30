@@ -87,7 +87,9 @@ router.post(
     // generate access token
     const payload = { email: user.email };
     const secretKey = process.env.ACCESS_TOKEN_SECRET_KEY;
-    const token = jwt.sign(payload, secretKey);
+    const token = jwt.sign(payload, secretKey, {
+      expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN,
+    });
 
     // send res
     return res

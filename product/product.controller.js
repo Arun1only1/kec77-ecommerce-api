@@ -173,7 +173,8 @@ router.post(
           price: 1,
           brand: 1,
           image: 1,
-          description: { $substr: ['$description', 0, 200] },
+          description: { $substr: ['$description', 0, 300] },
+          // description: 1,
         },
       },
     ]);
