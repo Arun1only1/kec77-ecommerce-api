@@ -1,9 +1,9 @@
-import Yup from 'yup';
+import Yup from "yup";
 import {
   DEFAULT_LIMIT,
   DEFAULT_PAGE,
   productCategories,
-} from '../constant/general.constant.js';
+} from "../constant/general.constant.js";
 
 export const addProductValidationSchema = Yup.object({
   name: Yup.string().required().trim().max(55),
@@ -18,5 +18,5 @@ export const addProductValidationSchema = Yup.object({
 export const paginationDataValidationSchema = Yup.object({
   page: Yup.number().min(1).integer().default(DEFAULT_PAGE),
   limit: Yup.number().min(1).integer().default(DEFAULT_LIMIT),
-  searchText: Yup.string().trim().notRequired(),
+  searchText: Yup.string().trim().optional(),
 });
