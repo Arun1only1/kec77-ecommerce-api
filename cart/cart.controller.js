@@ -96,7 +96,7 @@ router.delete(
     // check cart ownership
     const cart = await Cart.findOne({
       _id: cartId,
-      buyerId,
+      buyerId: req.loggedInUserId,
     });
 
     // if not cart, throw error
