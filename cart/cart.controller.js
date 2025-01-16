@@ -163,4 +163,12 @@ router.post(
   }
 );
 
+router.get("/cart/item/count", isBuyer, async (req, res) => {
+  const cartItemCount = await Cart.find({
+    buyerId: req.loggedInUserId,
+  }).countDocuments();
+
+  return res.status(200).send({ itemCount: cartItemCount });
+});
+
 export default router;
